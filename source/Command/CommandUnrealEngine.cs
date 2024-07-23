@@ -7,28 +7,37 @@ using System.Threading.Tasks;
 
 namespace Cleaner.Command {
 	internal class CommandUnrealEngine {
+		static long DeleteCacth() {
+			var localApplicationDataPath = Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData );
+
+			var unrealEnginePath = Path.Combine( localApplicationDataPath, "UnrealEngine" );
+
+			return FileUtils.DeleteDirectories(
+				[ unrealEnginePath ],
+				[ "DerivedDataCache", "SwarmCache" ] );
+		}
+
+
+
+		/// <summary>
+		/// 中間ファイル類の削除
+		/// </summary>
+		static long DeleteIntermediate() {
+			var projectPaths = UserSettings.instance.unreal_project_paths;
+
+			return FileUtils.DeleteDirectories(
+				projectPaths.ToArray(),
+				[ "Intermediate", "Binaries" ] );
+		}
+
+
+
 		async public static void Execute( object sender, EventArgs e ) {
-			using( new CommandScope() ) {
+			using( var c = new CommandScopeOp( [ DeleteCacth, DeleteIntermediate ] ) ) {
 				await Task.Run( () => {
-					var localApplicationDataPath = Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData );
-
-					var unrealEnginePath = Path.Combine( localApplicationDataPath, "UnrealEngine" );
-
-					string[] names = { "DerivedDataCache", "SwarmCache" };
-
-					foreach( var s in names ) {
-						foreach( var d in Directory.EnumerateDirectories( unrealEnginePath, s, SearchOption.AllDirectories ) ) {
-							try {
-								Directory.Delete( d, true );
-								Log.Info( d );
-							}
-							catch( Exception uae ) {
-								Log.Info( $"Exception: {Path.GetFileName( d )}" );
-							}
-						}
-					}
+					c.Execute();
 				} );
-			};
+			}
 		}
 	}
 }

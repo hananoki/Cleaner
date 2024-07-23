@@ -20,41 +20,47 @@ namespace Cleaner {
 		/// 
 		/// </summary>
 		/// <param name="form"></param>
-		public void OnLoad() {
-		}
+		public void OnLoad( UI_MainWindow ui_MainWindow ) {
+			uc_DirectoryList_CS.OnLoad(
+				new DirectoryListData {
+					image = Helper.GetCommandImage( uc_DirectoryList_CS.commandType ),
+					name = "C# Project Path",
+					addFunc = ( s ) => {
+						if( UserSettings.instance.cs_project_paths.Contains( s ) ) {
+							return false;
+						}
+						UserSettings.instance.cs_project_paths.Add( s );
+						return true;
+					},
+					//deleteFunc = ( selectIndex ) => {
+					//	UserSettings.instance.unreal_project_paths.RemoveAt( selectIndex );
+					//	return true;
+					//}
+				} );
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void OnVisibleChanged( object sender, EventArgs e ) {
-			try {
-				if( Visible ) {
-					//propertyGrid1.SelectedObject = UserSettings.instance;
-					listBox1.Items.Clear();
-
-					foreach( var s in UserSettings.instance.cs_project_paths ) {
-						listBox1.Items.Add( s );
+			uc_DirectoryList_UE.OnLoad(
+				new DirectoryListData {
+					image = Helper.GetCommandImage( uc_DirectoryList_UE.commandType ),
+					name = "Unreal Project Path",
+					addFunc = ( s ) => {
+						if( UserSettings.instance.unreal_project_paths.Contains( s ) ) {
+							return false;
+						}
+						UserSettings.instance.unreal_project_paths.Add( s );
+						return true;
+					},
+					deleteFunc = ( selectIndex ) => {
+						UserSettings.instance.unreal_project_paths.RemoveAt( selectIndex );
+						return true;
 					}
-				}
-			}
-			catch( Exception ex ) {
-			}
+				} );
+
+			uc_DirectoryList_CS.SetListStrings( UserSettings.instance.cs_project_paths );
+			uc_DirectoryList_UE.SetListStrings( UserSettings.instance.unreal_project_paths );
 		}
 
-		void button1_Click( object sender, EventArgs e ) {
-			using( var cofd = new CommonOpenFileDialog() ) {
-				// フォルダを選択できるようにする
-				cofd.IsFolderPicker = true;
 
-				if( cofd.ShowDialog() == CommonFileDialogResult.Ok ) {
-					// 何らかの処理
-					var s = cofd.FileName;
-					listBox1.Items.Add( s );
-					UserSettings.instance.cs_project_paths.Add(s);
-				}
-			}
-		}
+
+
 	}
 }

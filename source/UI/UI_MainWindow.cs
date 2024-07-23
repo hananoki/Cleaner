@@ -51,6 +51,7 @@ namespace Cleaner
 			UserSettings.Load();
 			UserSettings.RollbackWindow( this );
 
+			uc_settingProperty.OnLoad( this );
 			uc_logListView.OnLoad( this );
 
 			button1.Click += CommandRecycleBin.Execute;
@@ -60,6 +61,8 @@ namespace Cleaner
 			button5.Click += CommandUnity.Execute;
 
 			ChangePanel( EPanelType.Main );
+
+			UC_StatusBar.Info( "‹N“®‚µ‚Ü‚µ‚½" );
 		}
 
 

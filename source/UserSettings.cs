@@ -23,6 +23,7 @@ namespace Cleaner {
 		public int y { get; set; }
 
 		public List<string> cs_project_paths { get; set; } = new();
+		public List<string> unreal_project_paths { get; set; } = new();
 
 
 		static public UserSettings instance;

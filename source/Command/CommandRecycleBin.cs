@@ -16,7 +16,7 @@ namespace Cleaner.Command {
 						byteSize += info.Size;
 					}
 				}
-				float mega = byteSize / 1024f / 1024f;
+				float mega = byteSize / 1024f / 1024f; 
 
 				Log.Info( $"ごみ箱を空にします: {mega.ToString( "#.##" )} MB" );
 
