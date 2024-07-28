@@ -41,25 +41,30 @@ namespace Cleaner {
 					// 指定ディレクトリがない
 					if( !Directory.Exists( projPath ) ) continue;
 
-					foreach( var d in Directory.EnumerateDirectories( projPath, s, SearchOption.AllDirectories ) ) {
-						try {
-							// 列挙したディレクトリが何らかの理由で存在してない
-							if( !Directory.Exists( d ) ) continue;
+					try {
+						foreach( var d in Directory.EnumerateDirectories( projPath, s, SearchOption.AllDirectories ) ) {
+							try {
+								// 列挙したディレクトリが何らかの理由で存在してない
+								if( !Directory.Exists( d ) ) continue;
 
-							UC_StatusBar.Info( $"{d}" );
+								UC_StatusBar.Info( $"{d}" );
 
-							var folderSize = DeleteDirectory( d );
+								var folderSize = DeleteDirectory( d );
 
-							if( 0 < folderSize ) {
-								Log.Info( $"{d}: {MB( folderSize )}" );
+								if( 0 < folderSize ) {
+									Log.Info( $"{d}: {MB( folderSize )}" );
+								}
+
+								totalSize += folderSize;
+								Directory.Delete( d, true );
 							}
-
-							totalSize += folderSize;
-							Directory.Delete( d, true );
+							catch( Exception uae ) {
+								Log.Error( $"{uae.Message}" );
+							}
 						}
-						catch( Exception uae ) {
-							Log.Error( $"{uae.Message}" );
-						}
+					}
+					catch( Exception uae ) {
+						Log.Error( $"{uae.Message}" );
 					}
 				}
 			}
