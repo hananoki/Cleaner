@@ -22,6 +22,9 @@ namespace Cleaner {
 		[Browsable( false )]
 		public int y { get; set; }
 
+		[ReadOnly( true )]
+		public bool debugDefaultLang { get; set; }
+
 		public List<string> cs_project_paths { get; set; } = new();
 		public List<string> unreal_project_paths { get; set; } = new();
 

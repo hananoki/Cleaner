@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Cleaner.UI_MainWindow;
 
 namespace Cleaner {
 	public partial class UC_SettingProperty : UserControl {
@@ -21,6 +22,11 @@ namespace Cleaner {
 		/// </summary>
 		/// <param name="form"></param>
 		public void OnLoad( UI_MainWindow ui_MainWindow ) {
+			ui_MainWindow.changeCulture += ( lang ) => {
+				uc_DirectoryList_CS.ApplyLanguage();
+				uc_DirectoryList_UE.ApplyLanguage();
+			};
+
 			uc_DirectoryList_CS.OnLoad(
 				new DirectoryListData {
 					image = Helper.GetCommandImage( uc_DirectoryList_CS.commandType ),

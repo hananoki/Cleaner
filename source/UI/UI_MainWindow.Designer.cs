@@ -42,8 +42,8 @@ namespace Cleaner {
 			panel_main = new Panel();
 			uc_logListView = new UC_LogListView();
 			panel1 = new Panel();
-			uC_StatusBar1 = new UC_StatusBar();
 			imageList1 = new ImageList( components );
+			uc_statusBar = new UC_StatusBar();
 			panel_settings.SuspendLayout();
 			panel_buttons.SuspendLayout();
 			toolStrip1.SuspendLayout();
@@ -56,18 +56,20 @@ namespace Cleaner {
 			panel_settings.Controls.Add( uc_settingProperty );
 			panel_settings.Dock = DockStyle.Fill;
 			panel_settings.Location = new Point( 0, 0 );
+			panel_settings.Margin = new Padding( 0 );
 			panel_settings.Name = "panel_settings";
-			panel_settings.Padding = new Padding( 2, 4, 4, 4 );
-			panel_settings.Size = new Size( 530, 258 );
+			panel_settings.Padding = new Padding( 4 );
+			panel_settings.Size = new Size( 485, 263 );
 			panel_settings.TabIndex = 0;
 			// 
 			// uc_settingProperty
 			// 
 			uc_settingProperty.Dock = DockStyle.Fill;
-			uc_settingProperty.Location = new Point( 2, 4 );
+			uc_settingProperty.Location = new Point( 4, 4 );
+			uc_settingProperty.Margin = new Padding( 0 );
 			uc_settingProperty.Name = "uc_settingProperty";
-			uc_settingProperty.Size = new Size( 524, 250 );
-			uc_settingProperty.TabIndex = 4;
+			uc_settingProperty.Size = new Size( 477, 255 );
+			uc_settingProperty.TabIndex = 3;
 			// 
 			// button1
 			// 
@@ -77,7 +79,7 @@ namespace Cleaner {
 			button1.Name = "button1";
 			button1.Size = new Size( 150, 23 );
 			button1.TabIndex = 0;
-			button1.Text = "ゴミ箱を空にする";
+			button1.Text = "Delete Temporary Files";
 			button1.TextImageRelation = TextImageRelation.ImageBeforeText;
 			button1.UseVisualStyleBackColor = true;
 			// 
@@ -92,7 +94,7 @@ namespace Cleaner {
 			panel_buttons.Location = new Point( 0, 0 );
 			panel_buttons.Name = "panel_buttons";
 			panel_buttons.Padding = new Padding( 4, 4, 2, 4 );
-			panel_buttons.Size = new Size( 156, 258 );
+			panel_buttons.Size = new Size( 156, 263 );
 			panel_buttons.TabIndex = 2;
 			// 
 			// button4
@@ -103,7 +105,7 @@ namespace Cleaner {
 			button4.Name = "button4";
 			button4.Size = new Size( 150, 23 );
 			button4.TabIndex = 3;
-			button4.Text = "C# オブジェクトファイル";
+			button4.Text = "C# Object File";
 			button4.TextImageRelation = TextImageRelation.ImageBeforeText;
 			button4.UseVisualStyleBackColor = true;
 			// 
@@ -139,7 +141,7 @@ namespace Cleaner {
 			button2.Name = "button2";
 			button2.Size = new Size( 150, 23 );
 			button2.TabIndex = 1;
-			button2.Text = "一時ファイルの削除";
+			button2.Text = "Empty The Trash";
 			button2.TextImageRelation = TextImageRelation.ImageBeforeText;
 			button2.UseVisualStyleBackColor = true;
 			// 
@@ -151,7 +153,7 @@ namespace Cleaner {
 			toolStrip1.Name = "toolStrip1";
 			toolStrip1.Padding = new Padding( 4, 2, 4, 2 );
 			toolStrip1.RenderMode = ToolStripRenderMode.Professional;
-			toolStrip1.Size = new Size( 530, 42 );
+			toolStrip1.Size = new Size( 485, 39 );
 			toolStrip1.TabIndex = 3;
 			toolStrip1.Text = "toolStrip1";
 			// 
@@ -159,9 +161,10 @@ namespace Cleaner {
 			// 
 			toolStripButton1.Image = (Image) resources.GetObject( "toolStripButton1.Image" );
 			toolStripButton1.ImageTransparentColor = Color.Magenta;
+			toolStripButton1.Margin = new Padding( 2, 0, 2, 0 );
 			toolStripButton1.Name = "toolStripButton1";
-			toolStripButton1.Size = new Size( 53, 35 );
-			toolStripButton1.Text = "クリーナー";
+			toolStripButton1.Size = new Size( 40, 35 );
+			toolStripButton1.Text = "Clean";
 			toolStripButton1.TextImageRelation = TextImageRelation.ImageAboveText;
 			toolStripButton1.Click +=  toolStripButton1_Click ;
 			// 
@@ -169,9 +172,10 @@ namespace Cleaner {
 			// 
 			toolStripButton2.Image = (Image) resources.GetObject( "toolStripButton2.Image" );
 			toolStripButton2.ImageTransparentColor = Color.Magenta;
+			toolStripButton2.Margin = new Padding( 2, 0, 2, 0 );
 			toolStripButton2.Name = "toolStripButton2";
-			toolStripButton2.Size = new Size( 35, 35 );
-			toolStripButton2.Text = "設定";
+			toolStripButton2.Size = new Size( 53, 35 );
+			toolStripButton2.Text = "Settings";
 			toolStripButton2.TextImageRelation = TextImageRelation.ImageAboveText;
 			toolStripButton2.Click +=  toolStripButton2_Click ;
 			// 
@@ -182,7 +186,7 @@ namespace Cleaner {
 			panel_main.Dock = DockStyle.Fill;
 			panel_main.Location = new Point( 0, 0 );
 			panel_main.Name = "panel_main";
-			panel_main.Size = new Size( 530, 258 );
+			panel_main.Size = new Size( 485, 263 );
 			panel_main.TabIndex = 4;
 			// 
 			// uc_logListView
@@ -190,8 +194,8 @@ namespace Cleaner {
 			uc_logListView.Dock = DockStyle.Fill;
 			uc_logListView.Location = new Point( 156, 0 );
 			uc_logListView.Name = "uc_logListView";
-			uc_logListView.Padding = new Padding( 0, 0, 4, 0 );
-			uc_logListView.Size = new Size( 374, 258 );
+			uc_logListView.Padding = new Padding( 0, 0, 4, 2 );
+			uc_logListView.Size = new Size( 329, 263 );
 			uc_logListView.TabIndex = 3;
 			// 
 			// panel1
@@ -199,19 +203,11 @@ namespace Cleaner {
 			panel1.Controls.Add( panel_main );
 			panel1.Controls.Add( panel_settings );
 			panel1.Dock = DockStyle.Fill;
-			panel1.Location = new Point( 0, 42 );
+			panel1.Location = new Point( 0, 39 );
+			panel1.Margin = new Padding( 0 );
 			panel1.Name = "panel1";
-			panel1.Size = new Size( 530, 258 );
+			panel1.Size = new Size( 485, 263 );
 			panel1.TabIndex = 5;
-			// 
-			// uC_StatusBar1
-			// 
-			uC_StatusBar1.AutoSize = true;
-			uC_StatusBar1.Dock = DockStyle.Bottom;
-			uC_StatusBar1.Location = new Point( 0, 300 );
-			uC_StatusBar1.Name = "uC_StatusBar1";
-			uC_StatusBar1.Size = new Size( 530, 22 );
-			uC_StatusBar1.TabIndex = 6;
 			// 
 			// imageList1
 			// 
@@ -221,14 +217,24 @@ namespace Cleaner {
 			imageList1.Images.SetKeyName( 0, "CSFile_16x.png" );
 			imageList1.Images.SetKeyName( 1, "UnrealEd_icon.png" );
 			// 
+			// uc_statusBar
+			// 
+			uc_statusBar.AutoSize = true;
+			uc_statusBar.Dock = DockStyle.Bottom;
+			uc_statusBar.Location = new Point( 0, 302 );
+			uc_statusBar.Name = "uc_statusBar";
+			uc_statusBar.Size = new Size( 485, 22 );
+			uc_statusBar.TabIndex = 6;
+			// 
 			// UI_MainWindow
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size( 530, 322 );
+			ClientSize = new Size( 485, 324 );
 			Controls.Add( panel1 );
-			Controls.Add( uC_StatusBar1 );
+			Controls.Add( uc_statusBar );
 			Controls.Add( toolStrip1 );
+			Icon = (Icon) resources.GetObject( "$this.Icon" );
 			Name = "UI_MainWindow";
 			Text = "Cleaner";
 			FormClosing +=  OnFormClosing ;
@@ -258,11 +264,13 @@ namespace Cleaner {
 		
 		private Panel panel_main;
 		private Panel panel1;
-		public UC_LogListView uc_logListView;
-		public UC_SettingProperty uc_settingProperty;
+		
 		private Button button4;
 		private Button button5;
-		private UC_StatusBar uC_StatusBar1;
+		
 		public ImageList imageList1;
+		public UC_SettingProperty uc_settingProperty;
+		public UC_LogListView uc_logListView;
+		private UC_StatusBar uc_statusBar;
 	}
 }

@@ -117,4 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Cleaning" xml:space="preserve">
+    <value>Cleaning</value>
+  </data>
+  <data name="CSObjectFile" xml:space="preserve">
+    <value>C# Object File</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteTemporaryFiles" xml:space="preserve">
+    <value>Delete Temporary Files</value>
+  </data>
+  <data name="EmptytheTrash" xml:space="preserve">
+    <value>Empty The Trash</value>
+  </data>
+  <data name="OperationCompleted" xml:space="preserve">
+    <value>Operation Completed</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Started" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="TotaSizeDeleted" xml:space="preserve">
+    <value>Tota Size Deleted</value>
+  </data>
 </root>

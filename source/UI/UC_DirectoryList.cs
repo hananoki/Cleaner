@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Cleaner.Properties;
 
 namespace Cleaner {
 	public partial class UC_DirectoryList : UserControl {
@@ -21,6 +22,11 @@ namespace Cleaner {
 		/// </summary>
 		public UC_DirectoryList() {
 			InitializeComponent();
+		}
+
+		public void ApplyLanguage() {
+			toolStripButton1.Text = Resources.Add;
+			toolStripButton2.Text = Resources.Delete;
 		}
 
 

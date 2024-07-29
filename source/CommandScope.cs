@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cleaner.Properties;
 
 namespace Cleaner {
 	public class CommandScopeOp : IDisposable {
@@ -29,9 +30,9 @@ namespace Cleaner {
 		}
 
 		public void Dispose() {
-			Log.Info( $"削除した合計サイズ: {FileUtils.MB( totalSize )}" );
-			Log.Info( "操作が完了しました" );
-			UC_StatusBar.Info( "操作が完了しました" );
+			Log.Info( $"{Resources.TotaSizeDeleted}: {FileUtils.MB( totalSize )}" );
+			Log.Info( Resources.OperationCompleted );
+			UC_StatusBar.Info( Resources.OperationCompleted );
 
 			var i = UI_MainWindow.instance;
 

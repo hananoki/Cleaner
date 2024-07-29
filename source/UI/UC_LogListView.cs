@@ -36,14 +36,15 @@ namespace Cleaner {
 					DateTime.Now.ToString( format ),
 					text,
 				} );
-			
+
 			if( color.HasValue ) {
 				newItem.BackColor = color.Value;
 			}
 
 			m_fileItems.Add( newItem );
-
 			listView.VirtualListSize = m_fileItems.Count;
+
+			listView.EnsureVisible( m_fileItems.Count - 1 );
 		}
 
 		public void Info( string text ) {

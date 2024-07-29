@@ -59,5 +59,95 @@ namespace Cleaner.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Add に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cleaning に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Cleaning {
+            get {
+                return ResourceManager.GetString("Cleaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   C# Object File に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CSObjectFile {
+            get {
+                return ResourceManager.GetString("CSObjectFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Delete に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Delete Temporary Files に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DeleteTemporaryFiles {
+            get {
+                return ResourceManager.GetString("DeleteTemporaryFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Empty The Trash に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EmptytheTrash {
+            get {
+                return ResourceManager.GetString("EmptytheTrash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Operation Completed に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OperationCompleted {
+            get {
+                return ResourceManager.GetString("OperationCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Settings に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Started に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Started {
+            get {
+                return ResourceManager.GetString("Started", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tota Size Deleted に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TotaSizeDeleted {
+            get {
+                return ResourceManager.GetString("TotaSizeDeleted", resourceCulture);
+            }
+        }
     }
 }
