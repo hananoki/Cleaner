@@ -18,7 +18,7 @@ namespace Cleaner {
 		/// </summary>
 		/// <param name="force"></param>
 		public static void SelectConsoleWindow(bool enable) {
-
+#if DEBUG
 			if( enable ) {
 				Win32.AllocConsole();
 				// コンソールとstdoutの紐づけを行う。無くても初回は出力できるが、表示、非表示を繰り返すとエラーになる。
@@ -27,7 +27,7 @@ namespace Cleaner {
 			else {
 				Win32.FreeConsole();
 			}
-
+#endif
 		}
 
 
