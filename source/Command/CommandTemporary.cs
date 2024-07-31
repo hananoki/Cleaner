@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cleaner.Command {
+namespace Cleaner {
+
 	public class CommandTemporary {
 
-
-		static long Delete2() {
+		public static long Execute() {
 			string tempPath = Path.GetTempPath();
 			var tempDirs = Directory.EnumerateDirectories( tempPath, "*" )
 				.Select( x => Path.GetFileName( x ) )
@@ -20,11 +20,5 @@ namespace Cleaner.Command {
 				tempDirs );
 		}
 
-		async public static void Execute( object sender, EventArgs e ) {
-			using var c = new CommandScopeOp( [ Delete2 ] );
-			await Task.Run( () => {
-				c.Execute();
-			} );
-		}
 	}
 }

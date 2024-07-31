@@ -30,25 +30,19 @@ namespace Cleaner {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager( typeof( UI_MainWindow ) );
 			panel_settings = new Panel();
 			uc_settingProperty = new UC_SettingProperty();
-			button1 = new Button();
-			panel_buttons = new Panel();
-			button4 = new Button();
-			button5 = new Button();
-			button3 = new Button();
-			button2 = new Button();
 			toolStrip1 = new ToolStrip();
 			toolStripButton1 = new ToolStripButton();
 			toolStripButton2 = new ToolStripButton();
 			panel_main = new Panel();
 			uc_logListView = new UC_LogListView();
-			panel1 = new Panel();
+			uc_SideBar = new UC_SideBar();
+			panel_root = new Panel();
 			imageList1 = new ImageList( components );
 			uc_statusBar = new UC_StatusBar();
 			panel_settings.SuspendLayout();
-			panel_buttons.SuspendLayout();
 			toolStrip1.SuspendLayout();
 			panel_main.SuspendLayout();
-			panel1.SuspendLayout();
+			panel_root.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panel_settings
@@ -58,92 +52,17 @@ namespace Cleaner {
 			panel_settings.Location = new Point( 0, 0 );
 			panel_settings.Margin = new Padding( 0 );
 			panel_settings.Name = "panel_settings";
-			panel_settings.Padding = new Padding( 4 );
-			panel_settings.Size = new Size( 485, 263 );
+			panel_settings.Size = new Size( 468, 281 );
 			panel_settings.TabIndex = 0;
 			// 
 			// uc_settingProperty
 			// 
 			uc_settingProperty.Dock = DockStyle.Fill;
-			uc_settingProperty.Location = new Point( 4, 4 );
+			uc_settingProperty.Location = new Point( 0, 0 );
 			uc_settingProperty.Margin = new Padding( 0 );
 			uc_settingProperty.Name = "uc_settingProperty";
-			uc_settingProperty.Size = new Size( 477, 255 );
+			uc_settingProperty.Size = new Size( 468, 281 );
 			uc_settingProperty.TabIndex = 3;
-			// 
-			// button1
-			// 
-			button1.Dock = DockStyle.Top;
-			button1.Image = (Image) resources.GetObject( "button1.Image" );
-			button1.Location = new Point( 4, 4 );
-			button1.Name = "button1";
-			button1.Size = new Size( 150, 23 );
-			button1.TabIndex = 0;
-			button1.Text = "Delete Temporary Files";
-			button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-			button1.UseVisualStyleBackColor = true;
-			// 
-			// panel_buttons
-			// 
-			panel_buttons.Controls.Add( button4 );
-			panel_buttons.Controls.Add( button5 );
-			panel_buttons.Controls.Add( button3 );
-			panel_buttons.Controls.Add( button2 );
-			panel_buttons.Controls.Add( button1 );
-			panel_buttons.Dock = DockStyle.Left;
-			panel_buttons.Location = new Point( 0, 0 );
-			panel_buttons.Name = "panel_buttons";
-			panel_buttons.Padding = new Padding( 4, 4, 2, 4 );
-			panel_buttons.Size = new Size( 156, 263 );
-			panel_buttons.TabIndex = 2;
-			// 
-			// button4
-			// 
-			button4.Dock = DockStyle.Top;
-			button4.Image = (Image) resources.GetObject( "button4.Image" );
-			button4.Location = new Point( 4, 96 );
-			button4.Name = "button4";
-			button4.Size = new Size( 150, 23 );
-			button4.TabIndex = 3;
-			button4.Text = "C# Object File";
-			button4.TextImageRelation = TextImageRelation.ImageBeforeText;
-			button4.UseVisualStyleBackColor = true;
-			// 
-			// button5
-			// 
-			button5.Dock = DockStyle.Top;
-			button5.Location = new Point( 4, 73 );
-			button5.Name = "button5";
-			button5.Size = new Size( 150, 23 );
-			button5.TabIndex = 4;
-			button5.Text = "Unity";
-			button5.TextImageRelation = TextImageRelation.ImageBeforeText;
-			button5.UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			button3.Dock = DockStyle.Top;
-			button3.Image = (Image) resources.GetObject( "button3.Image" );
-			button3.Location = new Point( 4, 50 );
-			button3.Name = "button3";
-			button3.Size = new Size( 150, 23 );
-			button3.TabIndex = 2;
-			button3.Text = "UnrealEngine";
-			button3.TextAlign = ContentAlignment.BottomLeft;
-			button3.TextImageRelation = TextImageRelation.ImageBeforeText;
-			button3.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			button2.Dock = DockStyle.Top;
-			button2.Image = (Image) resources.GetObject( "button2.Image" );
-			button2.Location = new Point( 4, 27 );
-			button2.Name = "button2";
-			button2.Size = new Size( 150, 23 );
-			button2.TabIndex = 1;
-			button2.Text = "Empty The Trash";
-			button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-			button2.UseVisualStyleBackColor = true;
 			// 
 			// toolStrip1
 			// 
@@ -153,7 +72,7 @@ namespace Cleaner {
 			toolStrip1.Name = "toolStrip1";
 			toolStrip1.Padding = new Padding( 4, 2, 4, 2 );
 			toolStrip1.RenderMode = ToolStripRenderMode.Professional;
-			toolStrip1.Size = new Size( 485, 39 );
+			toolStrip1.Size = new Size( 468, 39 );
 			toolStrip1.TabIndex = 3;
 			toolStrip1.Text = "toolStrip1";
 			// 
@@ -182,32 +101,41 @@ namespace Cleaner {
 			// panel_main
 			// 
 			panel_main.Controls.Add( uc_logListView );
-			panel_main.Controls.Add( panel_buttons );
+			panel_main.Controls.Add( uc_SideBar );
 			panel_main.Dock = DockStyle.Fill;
 			panel_main.Location = new Point( 0, 0 );
 			panel_main.Name = "panel_main";
-			panel_main.Size = new Size( 485, 263 );
+			panel_main.Size = new Size( 468, 281 );
 			panel_main.TabIndex = 4;
 			// 
 			// uc_logListView
 			// 
 			uc_logListView.Dock = DockStyle.Fill;
-			uc_logListView.Location = new Point( 156, 0 );
+			uc_logListView.Location = new Point( 158, 0 );
 			uc_logListView.Name = "uc_logListView";
 			uc_logListView.Padding = new Padding( 0, 0, 4, 2 );
-			uc_logListView.Size = new Size( 329, 263 );
+			uc_logListView.Size = new Size( 310, 281 );
 			uc_logListView.TabIndex = 3;
 			// 
-			// panel1
+			// uc_SideBar
 			// 
-			panel1.Controls.Add( panel_main );
-			panel1.Controls.Add( panel_settings );
-			panel1.Dock = DockStyle.Fill;
-			panel1.Location = new Point( 0, 39 );
-			panel1.Margin = new Padding( 0 );
-			panel1.Name = "panel1";
-			panel1.Size = new Size( 485, 263 );
-			panel1.TabIndex = 5;
+			uc_SideBar.AutoSize = true;
+			uc_SideBar.Dock = DockStyle.Left;
+			uc_SideBar.Location = new Point( 0, 0 );
+			uc_SideBar.Name = "uc_SideBar";
+			uc_SideBar.Size = new Size( 158, 281 );
+			uc_SideBar.TabIndex = 5;
+			// 
+			// panel_root
+			// 
+			panel_root.Controls.Add( panel_main );
+			panel_root.Controls.Add( panel_settings );
+			panel_root.Dock = DockStyle.Fill;
+			panel_root.Location = new Point( 0, 39 );
+			panel_root.Margin = new Padding( 0 );
+			panel_root.Name = "panel_root";
+			panel_root.Size = new Size( 468, 281 );
+			panel_root.TabIndex = 5;
 			// 
 			// imageList1
 			// 
@@ -216,36 +144,39 @@ namespace Cleaner {
 			imageList1.TransparentColor = Color.Transparent;
 			imageList1.Images.SetKeyName( 0, "CSFile_16x.png" );
 			imageList1.Images.SetKeyName( 1, "UnrealEd_icon.png" );
+			imageList1.Images.SetKeyName( 2, "unity-logo-light.png" );
 			// 
 			// uc_statusBar
 			// 
 			uc_statusBar.AutoSize = true;
 			uc_statusBar.Dock = DockStyle.Bottom;
-			uc_statusBar.Location = new Point( 0, 302 );
+			uc_statusBar.Location = new Point( 0, 320 );
 			uc_statusBar.Name = "uc_statusBar";
-			uc_statusBar.Size = new Size( 485, 22 );
+			uc_statusBar.Size = new Size( 468, 22 );
 			uc_statusBar.TabIndex = 6;
 			// 
 			// UI_MainWindow
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size( 485, 324 );
-			Controls.Add( panel1 );
+			ClientSize = new Size( 468, 342 );
+			Controls.Add( panel_root );
 			Controls.Add( uc_statusBar );
 			Controls.Add( toolStrip1 );
 			Icon = (Icon) resources.GetObject( "$this.Icon" );
+			KeyPreview = true;
 			Name = "UI_MainWindow";
 			Text = "Cleaner";
 			FormClosing +=  OnFormClosing ;
 			FormClosed +=  OnFormClosed ;
 			Load +=  OnLoad ;
+			KeyDown +=  OnKeyDown ;
 			panel_settings.ResumeLayout( false );
-			panel_buttons.ResumeLayout( false );
 			toolStrip1.ResumeLayout( false );
 			toolStrip1.PerformLayout();
 			panel_main.ResumeLayout( false );
-			panel1.ResumeLayout( false );
+			panel_main.PerformLayout();
+			panel_root.ResumeLayout( false );
 			ResumeLayout( false );
 			PerformLayout();
 		}
@@ -253,24 +184,17 @@ namespace Cleaner {
 		#endregion
 
 		private Panel panel_settings;
-		private Button button1;
-		
-		public Panel panel_buttons;
-		private Button button2;
-		private Button button3;
 		private ToolStrip toolStrip1;
 		private ToolStripButton toolStripButton1;
 		private ToolStripButton toolStripButton2;
 		
 		private Panel panel_main;
-		private Panel panel1;
-		
-		private Button button4;
-		private Button button5;
+		private Panel panel_root;
 		
 		public ImageList imageList1;
 		public UC_SettingProperty uc_settingProperty;
 		public UC_LogListView uc_logListView;
 		private UC_StatusBar uc_statusBar;
+		public UC_SideBar uc_SideBar;
 	}
 }

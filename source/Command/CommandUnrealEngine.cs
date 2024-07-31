@@ -5,8 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cleaner.Command {
+namespace Cleaner {
+
 	internal class CommandUnrealEngine {
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		static long DeleteCacth() {
 			var localApplicationDataPath = Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData );
 
@@ -16,7 +22,6 @@ namespace Cleaner.Command {
 				[ unrealEnginePath ],
 				[ "DerivedDataCache", "SwarmCache" ] );
 		}
-
 
 
 		/// <summary>
@@ -31,13 +36,17 @@ namespace Cleaner.Command {
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public static long Execute() {
+			long byteSize = 0;
 
-		async public static void Execute( object sender, EventArgs e ) {
-			using( var c = new CommandScopeOp( [ DeleteCacth, DeleteIntermediate ] ) ) {
-				await Task.Run( () => {
-					c.Execute();
-				} );
-			}
+			byteSize += DeleteCacth();
+			byteSize += DeleteIntermediate();
+
+			return byteSize;
 		}
 	}
 }

@@ -132,6 +132,9 @@
   <data name="DeleteTemporaryFiles" xml:space="preserve">
     <value>一時ファイルの削除</value>
   </data>
+  <data name="EmptyingTheTrash" xml:space="preserve">
+    <value>ゴミ箱を空にしています</value>
+  </data>
   <data name="EmptytheTrash" xml:space="preserve">
     <value>ゴミ箱を空にする</value>
   </data>

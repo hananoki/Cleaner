@@ -5,9 +5,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Win32Api {
-#if false
-	#region dwmapi.dll
+public static partial class Win32 {
+#if ENABLE_DWMAPI_DLL
 	internal class dwmapi {
 		[StructLayout( LayoutKind.Sequential )]
 		public struct MARGINS {
@@ -26,6 +25,5 @@ namespace Win32Api {
 		[DllImport( "dwmapi.dll" )]
 		public static extern int DwmIsCompositionEnabled( out bool enabled );
 	}
-	#endregion
 #endif
 }

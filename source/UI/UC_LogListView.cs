@@ -14,21 +14,47 @@ namespace Cleaner {
 
 		List<ListViewItem> m_fileItems = new();
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public UC_LogListView() {
 			InitializeComponent();
+
+			if( UI_MainWindow.instance == null ) return;
+
+			UI_MainWindow.instance.onLoad += () => {
+				listView.SetDoubleBuffered( true );
+				listView.VirtualMode = true;
+				ResizeColumns();
+			};
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public void Clear() {
 			m_fileItems = new();
 			listView.VirtualListSize = 0;
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
 		public void AddLog( string[] text ) {
 			foreach( string item in text ) {
 				Info( item );
 			}
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		/// <param name="color"></param>
 		void SetText( string text, Color? color ) {
 			const string format = "yyyy-MM-dd HH:mm:ss.fff";
 
@@ -47,10 +73,20 @@ namespace Cleaner {
 			listView.EnsureVisible( m_fileItems.Count - 1 );
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
 		public void Info( string text ) {
 			SetText( text, Color.LightCyan );
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
 		public void Error( string text ) {
 			SetText( text, Color.Pink );
 		}
@@ -59,18 +95,6 @@ namespace Cleaner {
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="form"></param>
-		public void OnLoad( UI_MainWindow ui_MainWindow ) {
-			listView.SetDoubleBuffered( true );
-			listView.VirtualMode = true;
-			ResizeColumns();
-			//ui_MainWindow.changeCulture += ( lang ) => {
-
-			//	listView.Columns[ 0 ].Text = Resources.VariableName;
-			//	listView.Columns[ 1 ].Text = Resources.Path;
-			//};
-		}
-
 		void ResizeColumns() {
 			listView.Columns[ 0 ].Width = 140;
 			listView.Columns[ 1 ].Width = listView.Width - 4 - listView.Columns[ 0 ].Width;

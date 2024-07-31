@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,6 +10,26 @@ using System.Threading.Tasks;
 
 namespace Cleaner {
 	internal class Helper {
+
+		static bool bConsoleInit;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="force"></param>
+		public static void SelectConsoleWindow(bool enable) {
+
+			if( enable ) {
+				Win32.AllocConsole();
+				// コンソールとstdoutの紐づけを行う。無くても初回は出力できるが、表示、非表示を繰り返すとエラーになる。
+				Console.SetOut( new StreamWriter( Console.OpenStandardOutput() ) { AutoFlush = true } );
+			}
+			else {
+				Win32.FreeConsole();
+			}
+
+		}
+
 
 		/// <summary>
 		/// 
@@ -48,9 +69,12 @@ namespace Cleaner {
 		public static Image GetCommandImage( ECommandType commandType ) {
 
 			var i = UI_MainWindow.instance;
-			
-			if(commandType == ECommandType.UnrealEngine) {
-				return i.imageList1.Images[1];
+
+			if( commandType == ECommandType.Unity ) {
+				return i.imageList1.Images[ 2 ];
+			}
+			if( commandType == ECommandType.UnrealEngine ) {
+				return i.imageList1.Images[ 1 ];
 			}
 			return i.imageList1.Images[ 0 ];
 		}

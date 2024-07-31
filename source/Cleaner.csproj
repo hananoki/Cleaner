@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants);ENABLE_SHELL32_DLL</DefineConstants>
+    <DefineConstants>$(DefineConstants);ENABLE_SHELL32_DLL;ENABLE_KERNEL32_DLL</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

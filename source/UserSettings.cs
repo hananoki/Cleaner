@@ -25,8 +25,11 @@ namespace Cleaner {
 		[ReadOnly( true )]
 		public bool debugDefaultLang { get; set; }
 
+		public bool debugConsole { get; set; }
+
 		public List<string> cs_project_paths { get; set; } = new();
 		public List<string> unreal_project_paths { get; set; } = new();
+		public List<string> unity_project_paths { get; set; } = new();
 
 
 		static public UserSettings instance;

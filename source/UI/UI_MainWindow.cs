@@ -5,21 +5,18 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cleaner.Command;
 using WinFormsLib;
 using Cleaner.Properties;
 
 
-namespace Cleaner
-{
+namespace Cleaner {
 	public partial class UI_MainWindow : Form {
 
 		public static UI_MainWindow instance;
 
-		public delegate void FChangeCulture( string lang );
+		public event Action changeCulture;
 
-		public event FChangeCulture changeCulture;
-
+		public event Action onLoad;
 
 		/// <summary>
 		/// 
@@ -27,6 +24,11 @@ namespace Cleaner
 		public UI_MainWindow() {
 			instance = this;
 			InitializeComponent();
+
+			changeCulture += () => {
+				toolStripButton1.Text = Resources.Cleaning;
+				toolStripButton2.Text = Resources.Settings;
+			};
 		}
 
 
@@ -63,7 +65,7 @@ namespace Cleaner
 					Thread.CurrentThread.CurrentUICulture = new CultureInfo( "" );
 					break;
 			}
-			changeCulture?.Invoke( lang );
+			changeCulture?.Invoke();
 		}
 
 
@@ -78,24 +80,9 @@ namespace Cleaner
 			UserSettings.Load();
 			UserSettings.RollbackWindow( this );
 
-			uc_settingProperty.OnLoad( this );
-			uc_logListView.OnLoad( this );
-
-			button1.Click += CommandRecycleBin.Execute;
-			button2.Click += CommandTemporary.Execute;
-			button3.Click += CommandUnrealEngine.Execute;
-			button4.Click += CommandCSharp.Execute;
-			button5.Click += CommandUnity.Execute;
-
-			changeCulture += ( lang ) => {
-				toolStripButton1.Text = Resources.Cleaning;
-				toolStripButton2.Text = Resources.Settings;
-
-				button1.Text = Resources.EmptytheTrash;
-				button2.Text = Resources.DeleteTemporaryFiles;
-				button4.Text = Resources.CSObjectFile;
-			};
 			ChangePanel( EPanelType.Main );
+
+			onLoad?.Invoke();
 
 			Helper.ApplyLanguage();
 
@@ -123,6 +110,33 @@ namespace Cleaner
 		}
 
 
+		/// <summary>
+		/// コントロールにフォーカスがあるときにキーが押されると発生します
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void OnKeyDown( object sender, KeyEventArgs e ) {
+#if DEBUG
+			if( e.KeyCode == Keys.F12 ) {
+				if( UserSettings.instance.debugConsole ) {
+					UserSettings.instance.debugConsole = false;
+				}
+				else {
+					UserSettings.instance.debugConsole = true;
+				}
+				Helper.SelectConsoleWindow( UserSettings.instance.debugConsole );
+			}
+#endif
+			//if( e.KeyCode == Keys.F11 ) {
+			//	Helper.ApplyLanguage();
+			//	UC_StatusBar.Info( Resources.ApplyLanguage );
+			//}
+			//if( e.KeyCode == Keys.F10 ) {
+			//	UserSettings.instance.developMode = !UserSettings.instance.developMode;
+			//	UC_StatusBar.Info( Resources.SwitchedDevelopMode );
+			//}
+		}
+
 
 		void toolStripButton1_Click( object sender, EventArgs e ) {
 			ChangePanel( EPanelType.Main );
@@ -132,6 +146,10 @@ namespace Cleaner
 			ChangePanel( EPanelType.Settings );
 		}
 
+
+		void toolStripButton3_Click( object sender, EventArgs e ) {
+
+		}
 	}
 }
 

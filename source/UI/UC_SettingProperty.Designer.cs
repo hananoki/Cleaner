@@ -26,6 +26,7 @@
 			panel1 = new System.Windows.Forms.Panel();
 			tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			uc_DirectoryList_UE = new UC_DirectoryList();
+			uc_DirectoryList_Unity = new UC_DirectoryList();
 			uc_DirectoryList_CS = new UC_DirectoryList();
 			panel1.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
@@ -37,35 +38,47 @@
 			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel1.Location = new System.Drawing.Point( 0, 0 );
 			panel1.Name = "panel1";
-			panel1.Size = new System.Drawing.Size( 482, 333 );
+			panel1.Size = new System.Drawing.Size( 478, 394 );
 			panel1.TabIndex = 2;
 			// 
 			// tableLayoutPanel1
 			// 
 			tableLayoutPanel1.ColumnCount = 1;
-			tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-			tableLayoutPanel1.Controls.Add( uc_DirectoryList_UE, 0, 1 );
+			tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle() );
+			tableLayoutPanel1.Controls.Add( uc_DirectoryList_UE, 0, 2 );
+			tableLayoutPanel1.Controls.Add( uc_DirectoryList_Unity, 0, 1 );
 			tableLayoutPanel1.Controls.Add( uc_DirectoryList_CS, 0, 0 );
 			tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			tableLayoutPanel1.Location = new System.Drawing.Point( 0, 0 );
 			tableLayoutPanel1.Margin = new System.Windows.Forms.Padding( 0 );
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
-			tableLayoutPanel1.RowCount = 2;
-			tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-			tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-			tableLayoutPanel1.Size = new System.Drawing.Size( 482, 333 );
+			tableLayoutPanel1.RowCount = 3;
+			tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 48.6666679F ) );
+			tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 51.3333321F ) );
+			tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 138F ) );
+			tableLayoutPanel1.Size = new System.Drawing.Size( 478, 394 );
 			tableLayoutPanel1.TabIndex = 10;
 			// 
 			// uc_DirectoryList_UE
 			// 
 			uc_DirectoryList_UE.AutoSize = true;
 			uc_DirectoryList_UE.Dock = System.Windows.Forms.DockStyle.Fill;
-			uc_DirectoryList_UE.Location = new System.Drawing.Point( 0, 166 );
+			uc_DirectoryList_UE.Location = new System.Drawing.Point( 0, 255 );
 			uc_DirectoryList_UE.Margin = new System.Windows.Forms.Padding( 0 );
 			uc_DirectoryList_UE.Name = "uc_DirectoryList_UE";
-			uc_DirectoryList_UE.Size = new System.Drawing.Size( 482, 167 );
+			uc_DirectoryList_UE.Size = new System.Drawing.Size( 478, 139 );
 			uc_DirectoryList_UE.TabIndex = 8;
 			uc_DirectoryList_UE.Tag = ECommandType.UnrealEngine;
+			// 
+			// uc_DirectoryList_Unity
+			// 
+			uc_DirectoryList_Unity.AutoSize = true;
+			uc_DirectoryList_Unity.Dock = System.Windows.Forms.DockStyle.Fill;
+			uc_DirectoryList_Unity.Location = new System.Drawing.Point( 3, 127 );
+			uc_DirectoryList_Unity.Name = "uc_DirectoryList_Unity";
+			uc_DirectoryList_Unity.Size = new System.Drawing.Size( 472, 125 );
+			uc_DirectoryList_Unity.TabIndex = 11;
+			uc_DirectoryList_Unity.Tag = ECommandType.Unity;
 			// 
 			// uc_DirectoryList_CS
 			// 
@@ -74,7 +87,7 @@
 			uc_DirectoryList_CS.Location = new System.Drawing.Point( 0, 0 );
 			uc_DirectoryList_CS.Margin = new System.Windows.Forms.Padding( 0 );
 			uc_DirectoryList_CS.Name = "uc_DirectoryList_CS";
-			uc_DirectoryList_CS.Size = new System.Drawing.Size( 482, 166 );
+			uc_DirectoryList_CS.Size = new System.Drawing.Size( 478, 124 );
 			uc_DirectoryList_CS.TabIndex = 9;
 			uc_DirectoryList_CS.Tag = ECommandType.CSharp;
 			// 
@@ -84,7 +97,7 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			Controls.Add( panel1 );
 			Name = "UC_SettingProperty";
-			Size = new System.Drawing.Size( 482, 333 );
+			Size = new System.Drawing.Size( 478, 394 );
 			panel1.ResumeLayout( false );
 			tableLayoutPanel1.ResumeLayout( false );
 			tableLayoutPanel1.PerformLayout();
@@ -97,5 +110,6 @@
 		private UC_DirectoryList uc_DirectoryList_UE;
 		private UC_DirectoryList uc_DirectoryList_CS;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private UC_DirectoryList uc_DirectoryList_Unity;
 	}
 }

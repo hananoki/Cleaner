@@ -106,6 +106,15 @@ namespace Cleaner.Properties {
         }
         
         /// <summary>
+        ///   Emptying The Trash に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EmptyingTheTrash {
+            get {
+                return ResourceManager.GetString("EmptyingTheTrash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Empty The Trash に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string EmptytheTrash {

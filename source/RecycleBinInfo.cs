@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Win32Api;
+
 
 namespace Cleaner {
 	public class RecycleBinInfo {
@@ -13,7 +13,7 @@ namespace Cleaner {
 				cbSize = checked((uint) Marshal.SizeOf<SHQUERYRBINFO>())
 			};
 
-			if( shell32.SHQueryRecycleBin( rootPath, ref rbi ) == 0 ) {
+			if( Win32.SHQueryRecycleBin( rootPath, ref rbi ) == 0 ) {
 				result = (rbi.i64Size, rbi.i64NumItems);
 				return true;
 			}

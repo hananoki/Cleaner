@@ -132,6 +132,9 @@
   <data name="DeleteTemporaryFiles" xml:space="preserve">
     <value>Delete Temporary Files</value>
   </data>
+  <data name="EmptyingTheTrash" xml:space="preserve">
+    <value>Emptying The Trash</value>
+  </data>
   <data name="EmptytheTrash" xml:space="preserve">
     <value>Empty The Trash</value>
   </data>
